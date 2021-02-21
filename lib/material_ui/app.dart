@@ -13,14 +13,14 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/MaterialUi/backdrop.dart';
-import 'package:flutter_playground/MaterialUi/category_menu_page.dart';
-import 'package:flutter_playground/MaterialUi/model/product.dart';
-import 'package:flutter_playground/MaterialUi/supplemental/cut_corners_border.dart';
+import 'package:flutter_playground/material_ui/supplemental/cut_corners_border.dart';
 
+import 'backdrop.dart';
+import 'category_menu_page.dart';
 import 'colors.dart';
 import 'home.dart';
 import 'login.dart';
+import 'model/product.dart';
 
 class ShrineApp extends StatefulWidget {
   @override

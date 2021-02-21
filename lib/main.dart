@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/RandomWords/random_words.dart';
+import 'package:flutter_playground/keeping_it_local/keeping_it_local.dart';
 
-import 'MaterialUi/app.dart';
+import 'material_ui/app.dart';
+import 'random_words/random_words.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(primaryColor: Colors.white),
         home: Scaffold(
           appBar: AppBar(
-            title: Text('Playground'),
+            title: Text('Flutter Playground'),
           ),
           body: Home(),
         ));
@@ -32,7 +33,7 @@ class _HomeState extends State<Home> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        FlatButton(
+        TextButton(
           onPressed: () {
             Navigator.push(
               context,
@@ -41,14 +42,24 @@ class _HomeState extends State<Home> {
           },
           child: Text("Random Words"),
         ),
-        FlatButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ShrineApp()),
-              );
-            },
-            child: Text("Shrine App Material UI"))
+        TextButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ShrineApp()),
+            );
+          },
+          child: Text("Shrine App Material UI"),
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => KeepingItLocal()),
+            );
+          },
+          child: Text("Keeping it local"),
+        )
       ],
     );
   }

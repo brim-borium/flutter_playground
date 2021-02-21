@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/MaterialUi/colors.dart';
 
+import 'colors.dart';
 import 'model/product.dart';
 
 class CategoryMenuPage extends StatelessWidget {
