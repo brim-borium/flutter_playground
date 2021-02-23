@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/firebase_page.dart';
 import 'package:flutter_playground/keeping_it_local/keeping_it_local.dart';
+
+import 'file:///D:/Projects/flutter_playground/lib/firebase/firebase_page.dart';
 
 import 'material_ui/app.dart';
 import 'random_words/random_words.dart';

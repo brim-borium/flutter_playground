@@ -7,14 +7,6 @@ class FirebasePage extends StatefulWidget {
 }
 
 class _FirebasePageState extends State<FirebasePage> {
-  final dummySnapshot = [
-    {"name": "Filip", "votes": 15},
-    {"name": "Abraham", "votes": 14},
-    {"name": "Richard", "votes": 11},
-    {"name": "Ike", "votes": 10},
-    {"name": "Justin", "votes": 1},
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,11 +64,18 @@ class _FirebasePageState extends State<FirebasePage> {
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: ListTile(
-          title: Text(record.name),
-          trailing: Text(record.votes.toString()),
-          onTap: () =>
-              record.reference.update({'votes': FieldValue.increment(1)}),
-        ),
+            title: Text(record.name),
+            trailing: Text(record.votes.toString()),
+            onTap: () =>
+                FirebaseFirestore.instance.runTransaction((transaction) async {
+                  final freshSnapshot = await transaction.get(record.reference);
+                  final fresh = Record.fromSnapshot(freshSnapshot);
+                  await transaction
+                      .update(record.reference, {'votes': fresh.votes + 1});
+                })
+            // you can use atomic updated to prevent race conditions
+            // record.reference.update({'votes': FieldValue.increment(1)}),
+            ),
       ),
     );
   }
