@@ -32,6 +32,8 @@ dependencies:
   shrine_images: ^2.0.1
   intl: ^0.17.0
   shared_preferences: ^0.5.12+4
+  cloud_firestore: ^0.16.0+1
+  firebase_core: ^0.7.0
 
 dev_dependencies:
   flutter_test:
