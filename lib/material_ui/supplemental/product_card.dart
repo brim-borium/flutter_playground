@@ -22,7 +22,7 @@ class ProductCard extends StatelessWidget {
       : assert(imageAspectRatio == null || imageAspectRatio > 0);
 
   final double imageAspectRatio;
-  final Product product;
+  final Product? product;
 
   static final kTextBoxHeight = 65.0;
 
@@ -33,8 +33,8 @@ class ProductCard extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
 
     final imageWidget = Image.asset(
-      product.assetName,
-      package: product.assetPackage,
+      product!.assetName,
+      package: product!.assetPackage,
       fit: BoxFit.cover,
     );
 
@@ -54,7 +54,7 @@ class ProductCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
-                product == null ? '' : product.name,
+                product == null ? '' : product!.name,
                 style: theme.textTheme.headline6,
                 softWrap: false,
                 overflow: TextOverflow.ellipsis,
@@ -62,7 +62,7 @@ class ProductCard extends StatelessWidget {
               ),
               SizedBox(height: 4.0),
               Text(
-                product == null ? '' : formatter.format(product.price),
+                product == null ? '' : formatter.format(product!.price),
                 style: theme.textTheme.subtitle2,
               ),
             ],

@@ -19,11 +19,11 @@ import 'product_card.dart';
 
 class TwoProductCardColumn extends StatelessWidget {
   TwoProductCardColumn({
-    this.bottom,
+    required Product this.bottom,
     this.top,
   }) : assert(bottom != null);
 
-  final Product bottom, top;
+  final Product? bottom, top;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ class TwoProductCardColumn extends StatelessWidget {
 class OneProductCardColumn extends StatelessWidget {
   OneProductCardColumn({this.product});
 
-  final Product product;
+  final Product? product;
 
   @override
   Widget build(BuildContext context) {

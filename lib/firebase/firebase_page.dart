@@ -23,7 +23,7 @@ class _FirebasePageState extends State<FirebasePage> {
           return LinearProgressIndicator();
         }
 
-        return _buildList(context, snapshot.data.docs);
+        return _buildList(context, snapshot.data!.docs);
       },
     );
   }
@@ -44,7 +44,7 @@ class _FirebasePageState extends State<FirebasePage> {
                 onPressed: () {
                   for (var element in snapshot) {
                     var record = Record.fromSnapshot(element);
-                    record.reference.update(({'votes': 0}));
+                    record.reference!.update(({'votes': 0}));
                   }
                 },
                 child: Text("Reset Votes"))),
@@ -64,14 +64,14 @@ class _FirebasePageState extends State<FirebasePage> {
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: ListTile(
-            title: Text(record.name),
+            title: Text(record.name!),
             trailing: Text(record.votes.toString()),
             onTap: () =>
                 FirebaseFirestore.instance.runTransaction((transaction) async {
-                  final freshSnapshot = await transaction.get(record.reference);
+                  final freshSnapshot = await transaction.get(record.reference!);
                   final fresh = Record.fromSnapshot(freshSnapshot);
                   await transaction
-                      .update(record.reference, {'votes': fresh.votes + 1});
+                      .update(record.reference!, {'votes': fresh.votes! + 1});
                 })
             // you can use atomic updated to prevent race conditions
             // record.reference.update({'votes': FieldValue.increment(1)}),
@@ -82,9 +82,9 @@ class _FirebasePageState extends State<FirebasePage> {
 }
 
 class Record {
-  final String name;
-  final int votes;
-  final DocumentReference reference;
+  final String? name;
+  final int? votes;
+  final DocumentReference? reference;
 
   Record.fromMap(Map<String, dynamic> map, {this.reference})
       : assert(map['name'] != null),
@@ -93,7 +93,7 @@ class Record {
         votes = map['votes'];
 
   Record.fromSnapshot(DocumentSnapshot snapshot)
-      : this.fromMap(snapshot.data(), reference: snapshot.reference);
+      : this.fromMap(snapshot.data()!, reference: snapshot.reference);
 
   @override
   String toString() => "Record<$name:$votes>";

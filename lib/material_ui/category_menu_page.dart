@@ -10,9 +10,9 @@ class CategoryMenuPage extends StatelessWidget {
   final List<Category> _categories = Category.values;
 
   const CategoryMenuPage({
-    Key key,
-    @required this.currentCategory,
-    @required this.onCategoryTap,
+    Key? key,
+    required this.currentCategory,
+    required this.onCategoryTap,
   })  : assert(currentCategory != null),
         assert(onCategoryTap != null);
 
@@ -63,7 +63,7 @@ class CategoryMenuPage extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Text(
                 categoryString,
-                style: theme.textTheme.bodyText1
+                style: theme.textTheme.bodyText1!
                     .copyWith(color: kShrineBrown900.withAlpha(153)),
                 textAlign: TextAlign.center,
               ),

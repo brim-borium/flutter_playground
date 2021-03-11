@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/keeping_it_local/keeping_it_local.dart';
+import 'package:flutter_playground/state_management/riverpod/riverpod_page.dart';
 
 import 'firebase/firebase_page.dart';
 import 'material_ui/app.dart';
@@ -74,6 +75,15 @@ class _HomeState extends State<Home> {
             );
           },
           child: Text("Firebase"),
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => RiverpodPage()),
+            );
+          },
+          child: Text("State Management with Riverpod"),
         )
       ],
     );

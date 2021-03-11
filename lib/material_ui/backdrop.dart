@@ -14,11 +14,11 @@ class Backdrop extends StatefulWidget {
   final Widget backTitle;
 
   const Backdrop({
-    @required this.currentCategory,
-    @required this.frontLayer,
-    @required this.backLayer,
-    @required this.frontTitle,
-    @required this.backTitle,
+    required this.currentCategory,
+    required this.frontLayer,
+    required this.backLayer,
+    required this.frontTitle,
+    required this.backTitle,
   })  : assert(currentCategory != null),
         assert(frontLayer != null),
         assert(backLayer != null),
@@ -32,7 +32,7 @@ class Backdrop extends StatefulWidget {
 class _BackdropState extends State<Backdrop>
     with SingleTickerProviderStateMixin {
   final GlobalKey _backdropKey = GlobalKey(debugLabel: 'Backdrop');
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -148,13 +148,13 @@ class _BackdropState extends State<Backdrop>
 
 class _FrontLayer extends StatelessWidget {
   const _FrontLayer({
-    Key key,
+    Key? key,
     this.onTap,
     this.child,
   }) : super(key: key);
 
-  final VoidCallback onTap;
-  final Widget child;
+  final VoidCallback? onTap;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -175,7 +175,7 @@ class _FrontLayer extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: child,
+            child: child!,
           ),
         ],
       ),
@@ -184,25 +184,25 @@ class _FrontLayer extends StatelessWidget {
 }
 
 class _BackdropTitle extends AnimatedWidget {
-  final Function onPress;
+  final Function? onPress;
   final Widget frontTitle;
   final Widget backTitle;
 
   const _BackdropTitle({
-    Key key,
-    Listenable listenable,
+    Key? key,
+    required Listenable listenable,
     this.onPress,
-    @required this.frontTitle,
-    @required this.backTitle,
+    required this.frontTitle,
+    required this.backTitle,
   })  : assert(frontTitle != null),
         assert(backTitle != null),
         super(key: key, listenable: listenable);
 
   @override
   Widget build(BuildContext context) {
-    final Animation<double> animation = this.listenable;
+    final Animation<double> animation = this.listenable as Animation<double>;
     return DefaultTextStyle(
-        style: Theme.of(context).primaryTextTheme.headline6,
+        style: Theme.of(context).primaryTextTheme.headline6!,
         softWrap: false,
         overflow: TextOverflow.ellipsis,
         child: Row(
@@ -211,7 +211,7 @@ class _BackdropTitle extends AnimatedWidget {
               width: 72.0,
               child: IconButton(
                 padding: EdgeInsets.only(right: 8),
-                onPressed: this.onPress,
+                onPressed: this.onPress as void Function()?,
                 icon: Stack(
                   children: [
                     Opacity(
