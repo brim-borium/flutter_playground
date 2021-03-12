@@ -108,7 +108,6 @@ class CutCornersBorder extends OutlineInputBorder {
     double gapPercentage: 0.0,
     TextDirection? textDirection,
   }) {
-    assert(gapExtent != null);
     assert(gapPercentage >= 0.0 && gapPercentage <= 1.0);
 
     final Paint paint = borderSide.toPaint();
@@ -133,6 +132,8 @@ class CutCornersBorder extends OutlineInputBorder {
             canvas.drawPath(path, paint);
             break;
           }
+        default:
+          {}
       }
     }
   }

@@ -21,7 +21,7 @@ class TwoProductCardColumn extends StatelessWidget {
   TwoProductCardColumn({
     required Product this.bottom,
     this.top,
-  }) : assert(bottom != null);
+  });
 
   final Product? bottom, top;
 

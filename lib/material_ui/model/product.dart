@@ -12,9 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:flutter/foundation.dart';
-
-enum Category { all, accessories, clothing, home, }
+enum Category {
+  all,
+  accessories,
+  clothing,
+  home,
+}
 
 class Product {
   const Product({
@@ -23,11 +26,7 @@ class Product {
     required this.isFeatured,
     required this.name,
     required this.price,
-  })  : assert(category != null),
-        assert(id != null),
-        assert(isFeatured != null),
-        assert(name != null),
-        assert(price != null);
+  });
 
   final Category category;
   final int id;

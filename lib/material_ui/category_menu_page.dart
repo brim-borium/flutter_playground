@@ -13,8 +13,7 @@ class CategoryMenuPage extends StatelessWidget {
     Key? key,
     required this.currentCategory,
     required this.onCategoryTap,
-  })  : assert(currentCategory != null),
-        assert(onCategoryTap != null);
+  });
 
   @override
   Widget build(BuildContext context) {

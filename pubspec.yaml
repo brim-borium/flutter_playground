@@ -34,12 +34,19 @@ dependencies:
   shared_preferences: ^2.0.4
   cloud_firestore: ^1.0.1
   firebase_core: ^1.0.1
+  flutter_riverpod: ^0.13.1
+  json_annotation: ^4.0.0
+  dio: ^4.0.0-beta7
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   integration_test:
     sdk: flutter
+  freezed: ^0.14.0+1
+  build_runner: ^1.11.5
+  json_serializable: ^4.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

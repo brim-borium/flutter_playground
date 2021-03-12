@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 import 'login.dart';
 import 'model/product.dart';
@@ -19,11 +18,7 @@ class Backdrop extends StatefulWidget {
     required this.backLayer,
     required this.frontTitle,
     required this.backTitle,
-  })  : assert(currentCategory != null),
-        assert(frontLayer != null),
-        assert(backLayer != null),
-        assert(frontTitle != null),
-        assert(backTitle != null);
+  });
 
   @override
   _BackdropState createState() => _BackdropState();
@@ -194,9 +189,7 @@ class _BackdropTitle extends AnimatedWidget {
     this.onPress,
     required this.frontTitle,
     required this.backTitle,
-  })  : assert(frontTitle != null),
-        assert(backTitle != null),
-        super(key: key, listenable: listenable);
+  }) : super(key: key, listenable: listenable);
 
   @override
   Widget build(BuildContext context) {

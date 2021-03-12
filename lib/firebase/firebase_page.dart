@@ -68,9 +68,10 @@ class _FirebasePageState extends State<FirebasePage> {
             trailing: Text(record.votes.toString()),
             onTap: () =>
                 FirebaseFirestore.instance.runTransaction((transaction) async {
-                  final freshSnapshot = await transaction.get(record.reference!);
+                  final freshSnapshot =
+                      await transaction.get(record.reference!);
                   final fresh = Record.fromSnapshot(freshSnapshot);
-                  await transaction
+                  transaction
                       .update(record.reference!, {'votes': fresh.votes! + 1});
                 })
             // you can use atomic updated to prevent race conditions
