@@ -94,7 +94,8 @@ class Record {
         votes = map['votes'];
 
   Record.fromSnapshot(DocumentSnapshot snapshot)
-      : this.fromMap(snapshot.data()!, reference: snapshot.reference);
+      : this.fromMap(snapshot.data() as Map<String, dynamic>,
+            reference: snapshot.reference);
 
   @override
   String toString() => "Record<$name:$votes>";

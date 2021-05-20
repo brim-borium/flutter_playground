@@ -9,7 +9,7 @@ class RiverpodHomePage extends StatelessWidget {
     return Scaffold(
       body: Consumer(
         builder: (context, watch, child) {
-          final state = watch(userNotifierProvider.state);
+          final state = watch(userNotifierProvider.notifier).state;
 
           return state.when(() => homePageInitial(context),
               loading: () => homePageLoading(),
